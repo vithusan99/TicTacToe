@@ -4,9 +4,22 @@
 :root{
     --cell-size:100px;
     --mark-size:calc(var(--cell-size) * .9);
+    --txt-clr: #2274a5;
 }
 body{
     margin: 0;
+    position: relative;
+    font-family: 'Barriecito', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+.heading{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--txt-clr);
+    text-align: center;
+    width:60%;
 }
 .board{
     width: 100vw;
@@ -126,6 +139,9 @@ body{
     color: #2274a5;
     font-size: 5rem;
     flex-direction: column;
+    transform: scale(1.1);
+    transition-delay: 1s;
+    transition: all 1s ease-in-out;
 }
 .game-score button{
     font-size: 3rem;
@@ -133,10 +149,11 @@ body{
     background:    rgb(99, 43, 48);
     border: none;
     border-radius: 11px;
-    color: #e7eb90;
+    color: white;
     padding:       20px 45px;
-    font: normal bold 26px/1 "Open Sans", sans-serif;
+    /* font: normal bold 26px/1 "Open Sans", sans-serif; */
     transition: .4s ease-in-out;
+    margin-top: 20px;
 }
 .game-score button:hover{
     box-shadow: rgba(99, 43, 48, 0.4) 5px 5px, rgba(99, 43, 48, 0.3) 10px 10px, rgba(99, 43, 48, 0.2) 15px 15px, rgba(99, 43, 48, 0.1) 20px 20px, rgba(99, 43, 48, 0.05) 25px 25px;/* background-color: #5a3000ca; */
@@ -144,3 +161,26 @@ body{
 .game-score.show{
     display: flex;
 }
+.break{
+    display: none;
+}
+@media screen and (max-width: 480px) {
+    .heading {
+        font-size: medium !important;
+        width: 100%;
+        /* top: 10%; */
+    }
+    .heading p{
+        display: none;
+    }
+    .break{
+        display: block;
+    }
+    .game-score{
+        font-size: 2rem;
+    }
+    .game-score button{
+        padding: 15px 35px;
+        font-size: 1.5rem;
+    }
+  }
